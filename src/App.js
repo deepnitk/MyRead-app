@@ -15,7 +15,7 @@ class BooksApp extends React.Component {
       .then(books =>{
         this.setState({books});
       })
-      .catch(err => console.error('Error occurred fetching contacts ', err));
+      .catch(err => console.error('Error occurred fetching Books ', err));
   }
 
   moveBook = (book,shelf) => {
