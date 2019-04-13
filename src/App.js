@@ -16,13 +16,20 @@ class BooksApp extends React.Component {
       })
   }
 
+  moveBook = (book,shelf) => {
+
+  }
+
   render() {
     return (
       <div className='app'>
         <div className='List-books-title'>
           <h1>MyReads</h1>
         </div>
-        <ShelvesList/>
+        <ShelvesList
+          books = {this.state.books}
+          onMoveBook = {this.moveBook}
+        />
         <BookSearch/>
       </div>
     )
