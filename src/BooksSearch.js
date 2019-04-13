@@ -38,6 +38,7 @@ class BookSearch extends Component {
         .then(searchedBooks => {
             this.setState(prevState => ({searchedBooks}))
           })
+          .catch(err => console.error('Error occurred searching books: ', err));
     }
 
     render() {
@@ -68,7 +69,7 @@ class BookSearch extends Component {
     }
 }
 
-BookSearch.PropTypes = {
+BookSearch.propTypes = {
     onMoveBook: PropTypes.func.isRequired,
     books: PropTypes.array.isRequired
 }

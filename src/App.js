@@ -15,6 +15,7 @@ class BooksApp extends React.Component {
       .then(books =>{
         this.setState({books});
       })
+      .catch(err => console.error('Error occurred fetching contacts ', err));
   }
 
   moveBook = (book,shelf) => {
@@ -34,11 +35,14 @@ class BooksApp extends React.Component {
         }
         return {books:newState};
       }))
+      .catch(err => console.error('Error occurred moving book: ', err));
   }
 
   render() {
     return (
-      <div className='app'>
+      <div className= 'app'>
+      <Route exact path = '/' render={() => (
+        <div>
         <div className='List-books-title'>
           <h1>MyReads</h1>
         </div>
@@ -46,9 +50,13 @@ class BooksApp extends React.Component {
           books = {this.state.books}
           onMoveBook = {this.moveBook}
         />
-        <div className="open-search">
-              <Link to="/search">Add a book</Link>
+        <div className='open-search'>
+            <Link to="/search">Add a book</Link>
         </div>
+      </div>
+      )}/>
+        
+        
         <Route path="/search" render={ ({history}) => (
           <BookSearch
             books={this.state.books}
