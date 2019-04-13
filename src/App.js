@@ -3,7 +3,7 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import ShelvesList from './ShelvesList';
 import BookSearch from './BooksSearch';
-import {Route} from 'react-router-dom'
+import {Route,Link } from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = { 
@@ -46,6 +46,9 @@ class BooksApp extends React.Component {
           books = {this.state.books}
           onMoveBook = {this.moveBook}
         />
+        <div className="open-search">
+              <Link to="/search">Add a book</Link>
+        </div>
         <Route path="/search" render={ ({history}) => (
           <BookSearch
             books={this.state.books}
